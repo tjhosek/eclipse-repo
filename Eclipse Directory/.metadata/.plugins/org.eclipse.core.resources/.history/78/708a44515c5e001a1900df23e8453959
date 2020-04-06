@@ -1,0 +1,10 @@
+
+public class QRCode implements Scannable, Comparable
+{
+
+	public QRCode()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class PolarComplex
+{
+
+	public PolarComplex()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

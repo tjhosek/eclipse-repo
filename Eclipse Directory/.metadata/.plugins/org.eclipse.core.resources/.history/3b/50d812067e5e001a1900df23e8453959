@@ -1,0 +1,77 @@
+
+public class Produce extends Product
+{
+	int weight;
+	int pricePerPound;
+	String name;
+	public Produce()
+	{
+		super();
+		this.weight = 0;
+		this.pricePerPound = 0;
+		this.name = "";
+	}
+
+	public Produce(int weight, int pricePerPound, String name, int barCodeID)
+	{
+		super(barCodeID);
+		this.weight = weight;
+		this.pricePerPound = pricePerPound;
+		this.name = name;
+	}
+
+	/**
+	 * @return the weight
+	 */
+	public int getWeight()
+	{
+		return weight;
+	}
+
+	/**
+	 * @param weight the weight to set
+	 */
+	public void setWeight(int weight)
+	{
+		this.weight = weight;
+	}
+
+	/**
+	 * @return the pricePerPound
+	 */
+	public int getPricePerPound()
+	{
+		return pricePerPound;
+	}
+
+	/**
+	 * @param pricePerPound the pricePerPound to set
+	 */
+	public void setPricePerPound(int pricePerPound)
+	{
+		this.pricePerPound = pricePerPound;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName()
+	{
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	@Override
+	public int scan()
+	{
+		return this.weight * this.pricePerPound;
+	}
+
+}

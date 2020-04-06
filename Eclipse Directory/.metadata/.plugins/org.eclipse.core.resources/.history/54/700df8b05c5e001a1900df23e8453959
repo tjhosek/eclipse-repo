@@ -1,0 +1,11 @@
+
+public class SnapCode extends Code implements Scannable, Comparable<Code>
+{
+	private int accountNumber;
+	public SnapCode(String link, int accountNumber)
+	{
+		super(link);
+		this.accountNumber = accountNumber;
+	}
+
+}

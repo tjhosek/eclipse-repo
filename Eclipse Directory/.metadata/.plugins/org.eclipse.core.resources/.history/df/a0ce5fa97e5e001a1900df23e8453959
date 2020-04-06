@@ -1,0 +1,23 @@
+
+public class Pharmaceutical extends Product
+{
+
+	public Pharmaceutical()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public Pharmaceutical(int barCodeID)
+	{
+		super(barCodeID);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int scan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

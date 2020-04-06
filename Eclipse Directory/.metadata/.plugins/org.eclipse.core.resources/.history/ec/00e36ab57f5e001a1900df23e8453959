@@ -1,0 +1,11 @@
+
+public class Checkout
+{
+
+	public static void main(String[] args)
+	{
+		Produce bananas = new Produce(5, .5, "Banana", 1);
+		PackagedGood bread = new PackagedGood(5, 12, .8, "Whole Wheat Bread", 2);
+	}
+
+}

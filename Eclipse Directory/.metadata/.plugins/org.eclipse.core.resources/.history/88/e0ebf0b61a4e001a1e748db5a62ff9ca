@@ -1,0 +1,47 @@
+import java.util.Random;
+
+public class Lab5Exercises
+{
+	public static void main(String[] args)
+	{
+		
+	}
+	
+	public static void longestRun()
+	{
+		/**
+		 * Generate a stream of 20 random numbers, and print a string with the largest run of the same number in parenthesis
+		 */
+		Random numGen = new Random();
+		int num = 0;
+		int[] numList = new int[20];
+		int previousNum = 0;
+		int runIndex = 0;
+		int runLength = 0;
+		int highestRunLength = 0;
+		int highestRunIndex = 0;
+		
+		for(int i = 0; i < 20; i++)
+		{
+			num = numGen.nextInt(5) + 1;
+			numList[i] = num;
+			if(previousNum == num)
+			{
+				runLength = runLength + 1;
+				if(runLength > highestRunLength)
+				{
+					highestRunLength = runLength;
+					
+				}
+			}
+			else
+			{
+				if(runLength >= highestRunLength)
+				{
+					
+				}
+				runIndex = i;
+			}
+		}
+	}
+}

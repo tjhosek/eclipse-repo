@@ -1,0 +1,33 @@
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+
+import javax.swing.JComponent;
+
+public class TrajectoryComponent extends JComponent
+{
+	ArrayList<Point> trajectory;
+	private final Color COLOR = Color.black;
+	private final int DIAMETER = 3;
+	
+	public TrajectoryComponent(ArrayList<Point> trajectory)
+	{
+		this.trajectory = trajectory;
+	}
+	
+	public void paint(Graphics g)
+	{
+		Graphics2D g2D = (Graphics2D) g;
+		g2D.setColor(COLOR);
+		Ellipse2D circle;
+		for(Point point : trajectory)
+		{
+			circle = new Ellipse2D.Double(point.getX(), point.getY(), DIAMETER, DIAMETER);
+			g2D.draw(circle);
+			g2D.fill(circle);
+		}
+	}
+}

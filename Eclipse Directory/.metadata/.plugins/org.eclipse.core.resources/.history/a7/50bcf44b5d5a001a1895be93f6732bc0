@@ -1,0 +1,14 @@
+
+public class PolarComplex
+{
+	private double amplitude;
+	private double angle;
+	
+	public PolarComplex()
+	{
+		amplitude = 0;
+		angle = 0;
+	}
+	
+
+}

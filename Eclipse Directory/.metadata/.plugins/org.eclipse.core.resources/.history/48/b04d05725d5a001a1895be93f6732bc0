@@ -1,0 +1,13 @@
+
+public class StandardComplex
+{
+	private double realPart;
+	private double imaginaryPart;
+	
+	public StandardComplex()
+	{
+		this.realPart = 0;
+		this.imaginaryPart = 0;
+	}
+	
+}

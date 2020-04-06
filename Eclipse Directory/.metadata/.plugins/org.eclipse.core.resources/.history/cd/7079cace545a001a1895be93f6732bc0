@@ -1,0 +1,15 @@
+import java.awt.Point;
+import java.util.ArrayList;
+
+import javax.swing.JComponent;
+
+public class TrajectoryComponent extends JComponent
+{
+	ArrayList<Point> trajectory;
+	
+	public TrajectoryComponent(ArrayList<Point> trajectory)
+	{
+		this.trajectory = trajectory;
+	}
+
+}

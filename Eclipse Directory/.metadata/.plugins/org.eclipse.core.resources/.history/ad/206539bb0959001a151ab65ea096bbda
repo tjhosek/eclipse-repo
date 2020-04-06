@@ -1,0 +1,10 @@
+
+public class Child extends Parent
+{
+
+	public Child(int foo, int bar, int foobar)
+	{
+		super(foo, bar);
+	}
+
+}

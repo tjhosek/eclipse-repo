@@ -1,0 +1,57 @@
+
+public class PolarComplex
+{
+	private double amplitude;
+	private double angle;
+	
+	/**
+	 * @param amplitude
+	 * @param angle
+	 */
+	public PolarComplex(double amplitude, double angle)
+	{
+		super();
+		this.amplitude = amplitude;
+		this.angle = angle;
+	}
+
+	public PolarComplex()
+	{
+		this.amplitude = 0;
+		this.angle = 0;
+	}
+
+	/**
+	 * @return the amplitude
+	 */
+	public double getAmplitude()
+	{
+		return amplitude;
+	}
+
+	/**
+	 * @param amplitude the amplitude to set
+	 */
+	public void setAmplitude(double amplitude)
+	{
+		this.amplitude = amplitude;
+	}
+
+	/**
+	 * @return the angle
+	 */
+	public double getAngle()
+	{
+		return angle;
+	}
+
+	/**
+	 * @param angle the angle to set
+	 */
+	public void setAngle(double angle)
+	{
+		this.angle = angle;
+	}
+	
+
+}

@@ -1,0 +1,20 @@
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.ArrayList;
+
+import javax.swing.JComponent;
+
+public class TrajectoryComponent extends JComponent
+{
+	ArrayList<Point> trajectory;
+	
+	public TrajectoryComponent(ArrayList<Point> trajectory)
+	{
+		this.trajectory = trajectory;
+	}
+	
+	public void paint(Graphics g)
+	{
+		Graphics2D g2D = (Graphics2D) g;
+	}
+}

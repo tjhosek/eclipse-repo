@@ -1,0 +1,10 @@
+
+public class Canonball
+{
+	private double xPosition;
+	public Canonball(double xPosition)
+	{
+		this.xPosition = xPosition;
+	}
+
+}

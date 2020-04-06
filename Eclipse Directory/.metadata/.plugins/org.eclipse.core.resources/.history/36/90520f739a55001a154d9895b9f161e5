@@ -1,0 +1,105 @@
+
+public class GameofLife
+{
+	private boolean[][] board;
+	private final int NUMROW;
+	private final int NUMCOL;
+	
+	
+	public GameofLife(boolean[][] initialBoard)
+	{
+		NUMROW = initialBoard.length;
+		NUMCOL = initialBoard[0].length;
+		board = new boolean[NUMROW][NUMCOL];
+		for(int i = 0; i < NUMROW; i++)
+		{
+			for(int j = 0; j < NUMCOL; j++)
+			{
+				board[i][j] = initialBoard[i][j];
+			}
+		}
+	}
+	
+	public String toString()
+	{
+		String boardString = "";
+		for(boolean[] row : this.board)
+		{
+			for(boolean cell : row)
+			{
+				if(cell)
+				{
+					boardString = boardString + "o ";
+				}
+				else
+				{
+					boardString = boardString + "+ ";
+				}
+			}
+			boardString = boardString + "\n";
+		}
+		return boardString;
+	}
+	
+	public void grow(int generation, int freqPrint)
+	{
+		/**
+		 * shows the progression of the next number of specified generations, printing the results at freqPrint
+		 */
+		int neighboringCellCount;
+		boolean[][] newBoard = new boolean[NUMROW][NUMCOL];
+		for(int i = 1; i <= generation; i++)
+		{
+			newBoard = new boolean[NUMROW][NUMCOL];
+			for(int j = 0; j < NUMROW; j++)
+			{
+				for(int k = 0; k < NUMCOL; k++)
+				{
+					neighboringCellCount = checkNeighbor(j, k);
+					if(neighboringCellCount == 3)
+					{
+						newBoard[j][k] = true;
+					}
+					else if(neighboringCellCount < 2 || neighboringCellCount > 3)
+					{
+						newBoard[j][k] = false;
+					}
+					else
+					{
+						newBoard[j][k] = board[j][k];
+					}
+				}
+			}
+			
+			board = newBoard;
+			
+			if(i % freqPrint == 0)
+			{
+				System.out.println(this.toString());
+			}
+		}
+	}
+	
+	private int checkNeighbor(int x, int y)
+	{
+		/**
+		 * Returns the number of occupied blocks around x, y
+		 */
+		int numTrue = 0;
+		for(int i = x - 1; i <= x + 1; i++)
+		{
+			for(int j = y - 1; j <= y + 1; j++)
+			{
+				if(i >= 0 && j >= 0 && i < NUMROW && j < NUMCOL && !(i == x && j == x))
+				{
+					// if i and j are inside the bounds of the board and they are not equal to the point they are centered around, then the space is checked.
+					if(board[i][j])
+					{
+						numTrue += 1;
+					}
+				}
+			}
+		}
+		return numTrue;
+	}
+}

@@ -1,0 +1,29 @@
+
+public class Canonball
+{
+	private final double GRAVITY = 9.81;
+	private double xPosition;
+	private double yPosition;
+	private double xVelocity;
+	private double yVelocity;
+	
+	public Canonball(double xPosition)
+	{
+		this.xPosition = xPosition;
+		this.yPosition = 0;
+		this.xVelocity = 0;
+		this.yVelocity = 0;
+	}
+	
+	/**
+	 * Moves the canonball to the next position after an interval of deltaSec and updates the yVelocity to account for gravity
+	 * 
+	 * @param deltaSec the time in which the canonball moves
+	 */
+	public void move(double deltaSec)
+	{
+		this.xPosition = this.xPosition + this.xVelocity * deltaSec;
+		this.yPosition = this.yPosition + this.yVelocity * deltaSec - (GRAVITY * Math.pow(deltaSec, 2.0) / 2.0);
+		this.yVelocity = this.yVelocity - GRAVITY * deltaSec;
+	}
+}

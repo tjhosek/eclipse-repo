@@ -1,0 +1,11 @@
+import javax.swing.JComponent;
+
+public class TrajectoryComponent extends JComponent
+{
+
+	public TrajectoryComponent()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

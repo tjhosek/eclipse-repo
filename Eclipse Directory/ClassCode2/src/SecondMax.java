@@ -1,0 +1,89 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * 
+ * @author Trevor Hosek
+ * @version 1.0
+ * 2/10/2020
+ * C212
+ *
+ */
+
+/*
+ * A simple method that returns the second maximum number in an array of numbers
+ */
+
+
+public class SecondMax {
+
+	public static void main(String[] args) 
+	{
+		int[] numbers = getIntArray();
+		System.out.println(secondMax(numbers));
+
+	}
+	
+	public static int secondMax(int[] intArray)
+	{
+		/**
+		 * Returns the second highest number in an array of numbers.
+		 * Arguments: int[] intArray
+		 * Returns: int secondMax
+		 */
+		int max = intArray[0];
+		int secondMax = max;
+		for (int i : intArray) 
+		{
+			//Checks if i is greater than the maximum
+			if(i > max)
+			{
+				//sets the secondMax to the previous max
+				secondMax = max;
+				max = i;
+			}
+			//if i isn't greater than max but is greater than secondmax, it sets secondmax to i.
+			else if(i > secondMax)
+			{
+				secondMax = i;
+			}
+		}
+		return secondMax;
+	}
+	
+	public static int[] getIntArray()
+	{
+		/**
+		 * Gets a list of ints from the user, stopping on a value of -1
+		 */
+		System.out.println("Input a series of numbers. Input a -1 to stop.");
+		Scanner scanner = new Scanner(System.in);
+		int[] intArray = new int[0];
+		int input = 0;
+		do
+		{
+			System.out.print("Please input a non-negative integer or -1 to stop:");
+			if(scanner.hasNextInt()) 
+			{
+				input = scanner.nextInt();
+				if(input >= 0)
+				{
+					intArray = Arrays.copyOf(intArray, intArray.length + 1);
+					intArray[intArray.length-1] = input;
+				}
+				else if(input != -1)
+				{
+					System.out.println("Please only input positive integers.");
+				}
+			}
+			else
+			{
+				System.out.println("Please only input positive integers.");
+				scanner.next();
+			}
+		}while(input != -1);
+		scanner.close();
+		return intArray;
+	}
+
+}

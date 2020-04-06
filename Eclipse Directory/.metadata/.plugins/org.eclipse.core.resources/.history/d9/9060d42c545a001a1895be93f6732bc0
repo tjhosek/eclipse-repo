@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class CanonballDriver
+{
+
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("What x position would you like the canonball to start at?");
+		double initialX = sc.nextDouble();
+		System.out.println("What initial angle would you like the canonball to launch at?");
+		double initialAlpha = sc.nextDouble();
+		System.out.println("What initial velocity would you like the canonball to start at?");
+		double initialVelocity = sc.nextDouble();
+		System.out.println("What time interval would you like the values of the canonball to be observed?");
+		double timeInterval = sc.nextDouble();
+		
+		Canonball canonball = new Canonball(initialX);
+		ArrayList<Point> trajectory = canonball.shoot(initialAlpha, initialVelocity, timeInterval);
+	}
+
+}

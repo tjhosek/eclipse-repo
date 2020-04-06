@@ -1,0 +1,40 @@
+
+public class PolarComplex
+{
+	private int amplitude;
+	private int angle;
+	/**
+	 * @param amplitude
+	 * @param angle
+	 */
+	public PolarComplex(int amplitude, int angle)
+	{
+		this.amplitude = amplitude;
+		this.angle = angle;
+	}
+	
+	public PolarComplex()
+	{
+		amplitude = 0;
+		angle = 0;
+	}
+	
+	public int getAmplitude()
+	{
+		return amplitude;
+	}
+	public void setAmplitude(int amplitude)
+	{
+		this.amplitude = amplitude;
+	}
+	public int getAngle()
+	{
+		return angle;
+	}
+	public void setAngle(int angle)
+	{
+		this.angle = angle;
+	}
+	
+
+}

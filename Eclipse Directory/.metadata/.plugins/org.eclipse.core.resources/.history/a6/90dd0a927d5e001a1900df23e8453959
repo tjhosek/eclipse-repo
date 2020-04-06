@@ -1,0 +1,17 @@
+
+public class Produce extends Product
+{
+
+	public Produce()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int scan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

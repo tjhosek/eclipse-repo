@@ -1,0 +1,10 @@
+
+public class SnapCode extends Code implements Scannable, Comparable<Code>
+{
+
+	public SnapCode(String link)
+	{
+		super(link);
+	}
+
+}

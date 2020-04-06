@@ -1,0 +1,10 @@
+
+public class BarCode
+{
+
+	public BarCode()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

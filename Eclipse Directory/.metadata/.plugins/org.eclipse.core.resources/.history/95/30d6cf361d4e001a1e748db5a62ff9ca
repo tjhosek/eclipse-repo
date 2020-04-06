@@ -1,0 +1,68 @@
+import java.util.Random;
+
+public class Lab5Exercises
+{
+	public static void main(String[] args)
+	{
+		longestRun();
+	}
+	
+	public static void longestRun()
+	{
+		/**
+		 * Generate a stream of 20 random numbers, and print a string with the largest run of the same number in parenthesis
+		 */
+		final int COUNT = 20;
+		final int DIE_SIDES = 6;
+		
+		Random numGen = new Random();
+		int num = 0;					// The current num for the loop
+		int[] numList = new int[COUNT];	// The list of nums
+		int previousNum = 0;			// The previous num
+		int runIndex = 0;				// The index of the current run of same numbers
+		int runLength = 0;				// The length of the current run of the same numbers
+		int highestRunLength = 0;		// The length of the highest run of same numbers
+		int highestRunIndex = 0;		// The index of the highest run of the same numbers
+		
+		//Generating the numbers
+		for(int i = 0; i < COUNT; i++)
+		{
+			previousNum = num;
+			num = numGen.nextInt(DIE_SIDES-1) + 1;
+			numList[i] = num;
+			
+			if(previousNum == num)
+			{
+				// If the current run is still going on
+				runLength = runLength + 1;
+				if(runLength > highestRunLength)
+				{
+					// If the current run is longer than the longest recorded run
+					highestRunLength = runLength;
+					if(runIndex != highestRunIndex) { highestRunIndex = runIndex; }
+				}
+			}
+			else
+			{
+				// If the current run has stopped
+				runIndex = i;
+				runLength = 0;
+			}
+		}
+		
+		//Printing the numbers
+		for(int i = 0; i < COUNT; i++)
+		{
+			if(i == highestRunIndex)
+			{
+				System.out.print("(");
+			}
+			System.out.print(numList[i]);
+			if(i == highestRunIndex + highestRunLength)
+			{
+				System.out.print(")");
+			}
+			System.out.print(" ");
+		}
+	}
+}

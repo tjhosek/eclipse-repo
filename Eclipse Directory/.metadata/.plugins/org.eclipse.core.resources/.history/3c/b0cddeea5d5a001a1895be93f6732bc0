@@ -1,0 +1,61 @@
+
+public class StandardComplex
+{
+	private double realPart;
+	private double imaginaryPart;
+	
+	public StandardComplex()
+	{
+		this.realPart = 0;
+		this.imaginaryPart = 0;
+	}
+
+	/**
+	 * @param realPart
+	 * @param imaginaryPart
+	 */
+	public StandardComplex(double realPart, double imaginaryPart)
+	{
+		this.realPart = realPart;
+		this.imaginaryPart = imaginaryPart;
+	}
+
+	/**
+	 * @return the realPart
+	 */
+	public double getRealPart()
+	{
+		return realPart;
+	}
+
+	/**
+	 * @param realPart the realPart to set
+	 */
+	public void setRealPart(double realPart)
+	{
+		this.realPart = realPart;
+	}
+
+	/**
+	 * @return the imaginaryPart
+	 */
+	public double getImaginaryPart()
+	{
+		return imaginaryPart;
+	}
+
+	/**
+	 * @param imaginaryPart the imaginaryPart to set
+	 */
+	public void setImaginaryPart(double imaginaryPart)
+	{
+		this.imaginaryPart = imaginaryPart;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "(" + realPart + ", " + imaginaryPart + ")";
+	}
+	
+}

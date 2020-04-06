@@ -1,0 +1,23 @@
+
+public class BarCode extends Code implements Scannable, Comparable<Code>
+{
+	private int id;
+	public BarCode(String link, int id)
+	{
+		super(link);
+		this.id = id;
+	}
+	@Override
+	public int compareTo(Code o)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public Object[] scan()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

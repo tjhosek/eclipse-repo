@@ -1,0 +1,56 @@
+import javax.swing.JFrame;
+
+public class Lab6Exercises
+{
+	final static int NUMBER_OF_SQUARES = 8;
+	final static int GENERATIONS = 20;
+	final static int PRINT_FREQUENCY = 5;
+	
+	public static void main(String[] args)
+	{
+//		printCheckBoard(100);
+//		printCheckBoard(50);
+		
+		boolean[][] stillGrid = {
+				{false, false, false, false, false, false},
+				{false, false, true, true, false, false},
+				{false, true, false, false, true, false},
+				{false, false, true, false, true, false},
+				{false, false, false, true, false, false},
+				{false, false, false, false, false, false}
+		};
+		
+		boolean[][] oscillatorGrid = {
+				{false, false, false, false, false, false},
+				{false, true, true, false, false, false},
+				{false, true, false, false, false, false},
+				{false, false, false, false, true, false},
+				{false, false, false, true, true, false},
+				{false, false, false, false, false, false}
+		};
+		
+		GameofLife stillGame = new GameofLife(stillGrid);
+		
+		System.out.print(stillGame);
+		
+		stillGame.grow(GENERATIONS, PRINT_FREQUENCY);
+		
+		GameofLife oscillatorGame = new GameofLife(oscillatorGrid);
+//		System.out.println(oscillatorGame);
+//		oscillatorGame.grow(10, 1);
+	}
+	
+	public static void printCheckBoard(int size)
+	{
+		JFrame frame = new JFrame();
+		int dimension = (int) Math.round(size * (NUMBER_OF_SQUARES + 1));
+		frame.setSize(dimension, dimension);
+		frame.setTitle("Checkerboard");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		BoxComponent board = new BoxComponent(size, NUMBER_OF_SQUARES);
+		frame.add(board);
+
+		frame.setVisible(true);
+	}
+}

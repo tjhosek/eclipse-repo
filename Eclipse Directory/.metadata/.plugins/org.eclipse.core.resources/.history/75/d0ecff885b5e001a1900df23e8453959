@@ -1,0 +1,10 @@
+
+abstract public class Code
+{
+
+	public Code()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

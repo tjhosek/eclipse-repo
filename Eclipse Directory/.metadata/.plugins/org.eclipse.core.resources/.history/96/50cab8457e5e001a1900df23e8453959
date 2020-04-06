@@ -1,0 +1,23 @@
+
+public class PackagedGood extends Product
+{
+
+	public PackagedGood()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	public PackagedGood(int barCodeID)
+	{
+		super(barCodeID);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int scan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

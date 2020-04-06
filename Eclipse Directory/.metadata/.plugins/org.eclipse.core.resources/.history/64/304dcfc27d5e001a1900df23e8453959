@@ -1,0 +1,19 @@
+
+public class Produce extends Product
+{
+	int weight;
+	int pricePerPound;
+	String name;
+	public Produce()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int scan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

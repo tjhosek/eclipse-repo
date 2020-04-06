@@ -1,0 +1,33 @@
+
+public class PackagedGood extends Product
+{
+	int price;
+	int pieces;
+	int salePercent;
+	String name;
+	
+	public PackagedGood()
+	{
+		super();
+		price = 0;
+		pieces = 0;
+		salePercent = 0;
+		name = "";
+	}
+
+	public PackagedGood(int barCodeID, int price, int pieces, int salePercent, String name)
+	{
+		super(barCodeID);
+		this.price = price;
+		this.pieces = pieces;
+		this.salePercent = salePercent;
+		this.name = name;
+	}
+
+	@Override
+	public int scan()
+	{
+		return price * salePercent;
+	}
+	
+}

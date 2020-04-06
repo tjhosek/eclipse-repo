@@ -1,0 +1,23 @@
+
+public class QRCode extends Code implements Scannable, Comparable<Code>
+{
+	private String filePath;
+	public QRCode(String link, String filePath)
+	{
+		super(link);
+		this.filePath = filePath;
+	}
+	@Override
+	public int compareTo(Code o)
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public Object[] scan()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

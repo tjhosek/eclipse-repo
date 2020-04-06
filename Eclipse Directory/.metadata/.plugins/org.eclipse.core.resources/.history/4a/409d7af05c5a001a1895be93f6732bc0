@@ -1,0 +1,12 @@
+
+public class StandardComplex
+{
+	private int realPart;
+	private int imaginaryPart;
+	
+	public StandardComplex()
+	{
+		
+	}
+
+}

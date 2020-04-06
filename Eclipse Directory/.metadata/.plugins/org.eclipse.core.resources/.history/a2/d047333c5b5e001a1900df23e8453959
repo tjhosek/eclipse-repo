@@ -1,0 +1,10 @@
+
+public class BarCode extends code implements Scannable, Comparable
+{
+
+	public BarCode()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

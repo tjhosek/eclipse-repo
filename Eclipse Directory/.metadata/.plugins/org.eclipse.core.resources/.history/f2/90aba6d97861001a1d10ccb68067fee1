@@ -1,0 +1,24 @@
+import java.awt.Color;
+import java.awt.Point;
+
+public class Hexagon extends Polygon
+{
+	private final static int NUM_SIDES = 6;
+	public Hexagon(Color fillColor, Color borderColor, Point[] points)
+	{
+		super(fillColor, borderColor, points, NUM_SIDES);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Hexagon(Color fillColor, Point[] points)
+	{
+		super(fillColor, points, NUM_SIDES);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Hexagon(Point[] points)
+	{
+		super(points, NUM_SIDES);
+		// TODO Auto-generated constructor stub
+	}
+}

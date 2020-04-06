@@ -1,0 +1,17 @@
+
+public class Product implements Scannable
+{
+
+	public Product()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int scan()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

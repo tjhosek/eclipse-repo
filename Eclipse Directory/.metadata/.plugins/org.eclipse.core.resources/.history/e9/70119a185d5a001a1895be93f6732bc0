@@ -1,0 +1,8 @@
+
+public class PolarComplex
+{
+	private int amplitude;
+	private int angle;
+	
+
+}

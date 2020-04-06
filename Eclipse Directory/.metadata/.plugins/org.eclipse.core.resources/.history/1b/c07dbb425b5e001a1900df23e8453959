@@ -1,0 +1,10 @@
+
+public class SnapCode inherits Code
+{
+
+	public SnapCode()
+	{
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,426 @@
+import java.util.Random;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+
+/**
+ * 
+ * @author Trevor Hosek
+ * @version 1.0
+ * Lab 4
+ * CSCI-C212
+ * 2/7/2020
+ *
+ */
+
+
+public class Lab4Exercises {
+
+	public static void main(String[] args) {
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.print("Please type the roman numeral you wish to convert. It may not be bigger than 3,999: ");
+//		String romanNumeral = scanner.nextLine();
+//		System.out.println("Your number is " + romanToInt(romanNumeral));
+//		scanner.close();
+		
+//		patternMenu();
+		
+//		randomFrequency();
+		
+//		System.out.println("String 1: \"foo\" String 2: \"bar\" Combo: \"foobar\" Validity: " + checkValidShuffle("foo","bar","foobar"));
+		
+		
+	}
+
+	public static int romanToInt(String roman)
+	{
+		/**
+		 * Coverts a roman numeral into its decimal representation
+		 * 
+		 * Arguments: String roman, the roman numeral to be converted
+		 * 
+		 * returns: the int representation of the roman numeral
+		 */
+		
+		String roman_upper = roman.toUpperCase();
+		int number = 0;
+		char previousChar;
+		char currentChar = ' ';
+		for(int i = 0; i < roman_upper.length(); i++)
+		{
+			previousChar = currentChar;
+			currentChar = roman_upper.charAt(i);
+			switch(currentChar)
+			{
+			case 'M' : number += previousChar == 'C' ? 800 : 1000; break;
+			case 'D' : number += previousChar == 'C' ? 300 : 500; break;
+			case 'C' : number += previousChar == 'X' ? 80 : 100; break;
+			case 'L' : number += previousChar == 'X' ? 30 : 50; break;
+			case 'X' : number += previousChar == 'I' ? 8 : 10; break;
+			case 'V' : number += previousChar == 'I' ? 3 : 5; break;
+			case 'I' : number += 1; break;
+			default: System.out.println("Error: unrecognized numeral"); break;
+			}
+		}
+		return number;
+	}
+	
+	public static void patternMenu()
+	{
+		Scanner menu = new Scanner(System.in);
+		boolean isRunning = true;
+		while(isRunning) 
+		{
+			System.out.println("Please choose one of the following options: ");
+			System.out.println("   A : An hourglass shape with counting numbers.");
+			System.out.println("   B : A Triangle made of asterisks.");
+			System.out.println("   C : A Diamond made of asterisks.");
+			System.out.println("   E : Exit the program.");
+			System.out.print("Please type which option you want: ");
+			char option = menu.next().toUpperCase().charAt(0);
+			int size = 0;
+			switch(option) 
+			{
+			case 'A' : 
+				System.out.print("What size do you want the pattern to be?: ");
+				size = menu.nextInt();
+				printHourglass(size);
+				break;
+			case 'B' : 
+				System.out.print("What size do you want the pattern to be?: ");
+				size = menu.nextInt();
+				printTriangle(size);
+				break;
+			case 'C' : 
+				System.out.print("What size do you want the pattern to be?: ");
+				size = menu.nextInt();
+				printDiamond(size);
+				break;
+			case 'E' : isRunning = false; break;
+			default: System.out.println("Please input a valid option."); break;
+			}
+		}
+		menu.close();
+	}
+	
+	private static void printHourglass(int size) 
+	{
+		//Top half of hourglass
+		for(int i = 1; i <= size; i++) 
+		{
+			//Printing Empty space
+			for(int j = 0; j < i - 1; j++) 
+			{
+				System.out.print(" ");
+			}
+			//Printing Numbers
+			for(int j = i; j <= size; j++)
+			{
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+		
+		//Bottom half of hourglass
+		for(int i = size - 1; i >= 1; i--)
+		{
+			//Printing Empty space
+			for(int j = 0; j < i - 1; j++) 
+			{
+				System.out.print(" ");
+			}
+			//Printing Numbers
+			for(int j = i; j <= size; j++)
+			{
+				System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	private static void printTriangle(int size)
+	{
+		//Printing asterisk triangle
+		for(int i = 1; i <= size; i++)
+		{
+			//Printing empty space
+			for(int j = size - i; j > 0; j--)
+			{
+				System.out.print(" ");
+			}
+			//Printing first asterisk
+			System.out.print("*");
+			//Printing filling spaces
+			if(i > 1 && i < size)
+			{
+				for(int j = (i - 2) * 2 + 1; j > 0; j--)
+				{
+					System.out.print(" ");
+				}
+			}
+			//Printing last row of asterisks
+			else if(i == size)
+			{
+				for(int j = (i - 2) * 2 + 1; j > 0; j--)
+				{
+					System.out.print("*");
+				}
+			}
+			//Printing "cap" asterisk at the end of the line
+			if(i > 1)
+			{
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+	private static void printDiamond(int size)
+	{
+		//Printing top half of diamond
+		for(int i = 1; i <= size; i++)
+		{
+			printDiamondRow(size, i);
+		}
+		
+		//Printing second half of diamond
+		for(int i = size - 1; i > 0; i--)
+		{
+			printDiamondRow(size, i);
+		}
+	}
+	
+	private static void printDiamondRow(int size, int i)
+	{
+		//Printing empty space
+		for(int j = size - i; j > 0; j--)
+		{
+			System.out.print(" ");
+		}
+		//Printing first asterisk
+		System.out.print("*");
+		//Printing filler spaces
+		if(i > 1)
+		{
+			for(int j = (i - 2) * 2 + 1; j > 0; j--)
+			{
+				System.out.print(" ");
+			}
+			//Printing "cap" asterisk at the end of the line
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	
+	public static void randomFrequency()
+	{
+		/**
+		 * Generates a string of 10 random numbers, calculates their frequencies, and removes the numbers with the largest frequency.
+		 * In the case of a tie, the smallest number is removed.
+		 */
+		
+		//Initializing variables
+		Random random = new Random();
+		String numbers = "";
+		//Frequency variables
+		int ones = 0;
+		int twos = 0;
+		int threes = 0;
+		int fours = 0;
+		int fives = 0;
+		int sixes = 0;
+		int sevens = 0;
+		int eights = 0;
+		int nines = 0;
+		int tens = 0;
+		for(int i = 0; i < 10; i++)
+		{
+			int number = random.nextInt(10)+1;
+			switch(number)
+			{
+			case 1 : ones++; break;
+			case 2 : twos++; break;
+			case 3 : threes++; break;
+			case 4 : fours++; break;
+			case 5 : fives++; break;
+			case 6 : sixes++; break;
+			case 7 : sevens++; break;
+			case 8 : eights++; break;
+			case 9 : nines++; break;
+			case 10 : tens++; break;
+			}
+			numbers = numbers + "," + number;
+		}
+		numbers = numbers.substring(1);
+		System.out.println("Random Numbers = " + numbers);
+		System.out.println("Frequency:");
+		System.out.println("1 -> " + ones);
+		System.out.println("2 -> " + twos);
+		System.out.println("3 -> " + threes);
+		System.out.println("4 -> " + fours);
+		System.out.println("5 -> " + fives);
+		System.out.println("6 -> " + sixes);
+		System.out.println("7 -> " + sevens);
+		System.out.println("8 -> " + eights);
+		System.out.println("9 -> " + nines);
+		System.out.println("10 -> " + tens);
+		System.out.println("Deleting numbers with Max Frequency...");
+		int highestFrequency = 0;
+		if(ones > highestFrequency)
+		{
+			highestFrequency = ones;
+		}
+		if(twos > highestFrequency)
+		{
+			highestFrequency = twos;
+		}
+		if(threes > highestFrequency)
+		{
+			highestFrequency = threes;
+		}
+		if(fours > highestFrequency)
+		{
+			highestFrequency = fours;
+		}
+		if(fives > highestFrequency)
+		{
+			highestFrequency = fives;
+		}
+		if(sixes > highestFrequency)
+		{
+			highestFrequency = sixes;
+		}
+		if(sevens > highestFrequency)
+		{
+			highestFrequency = sevens;
+		}
+		if(eights > highestFrequency)
+		{
+			highestFrequency = eights;
+		}
+		if(nines > highestFrequency)
+		{
+			highestFrequency = nines;
+		}
+		if(tens > highestFrequency)
+		{
+			highestFrequency = tens;
+		}
+		
+		if(highestFrequency == ones)
+		{
+			numbers = numbers.replaceAll("1,", "");
+			numbers = numbers.replaceAll("1", "");
+			numbers = numbers.replaceAll("0", "10");
+		}
+		else if(highestFrequency == twos)
+		{
+			numbers = numbers.replaceAll("2,", "");
+			numbers = numbers.replaceAll("2", "");
+		}
+		else if(highestFrequency == threes)
+		{
+			numbers = numbers.replaceAll("3,", "");
+			numbers = numbers.replaceAll("3", "");
+		}
+		else if(highestFrequency == fours)
+		{
+			numbers = numbers.replaceAll("4,", "");
+			numbers = numbers.replaceAll("4", "");
+		}
+		else if(highestFrequency == fives)
+		{
+			numbers = numbers.replaceAll("5,", "");
+			numbers = numbers.replaceAll("5", "");
+		}
+		else if(highestFrequency == sixes)
+		{
+			numbers = numbers.replaceAll("6,", "");
+			numbers = numbers.replaceAll("6", "");
+		}
+		else if(highestFrequency == sevens)
+		{
+			numbers = numbers.replaceAll("7,", "");
+			numbers = numbers.replaceAll("7", "");
+		}
+		else if(highestFrequency == eights)
+		{
+			numbers = numbers.replaceAll("8,", "");
+			numbers = numbers.replaceAll("8", "");
+		}
+		else if(highestFrequency == nines)
+		{
+			numbers = numbers.replaceAll("9,", "");
+			numbers = numbers.replaceAll("9", "");
+		}
+		else if(highestFrequency == tens)
+		{
+			numbers = numbers.replaceAll("10,", "");
+			numbers = numbers.replaceAll("10", "");
+		}
+		
+		System.out.println("Random Numbers = " + numbers);
+	}
+	
+	public static boolean checkValidShuffle(String string1, String string2, String combo)
+	{
+		/**
+		 * Checks if combo is a valid combination of string1 and string2
+		 */
+		
+		//Checking if the length is valid
+		if(string1.length() + string2.length() != combo.length())
+		{
+			//Length of strings is invalid
+			return false;
+		}
+		
+		boolean valid = false;
+		//Checking for Valid characters
+		for(int i = 0; i < combo.length(); i++)
+		{
+			char currentChar = combo.charAt(i);
+			valid = false;
+			//Checking string 1
+			for(int j = 0; j < string1.length(); j++)
+			{
+				if(currentChar == string1.charAt(j))
+				{
+					valid = true;
+				}
+			}
+			//Checking string 2
+			for(int j = 0; j < string2.length(); j++)
+			{
+				if(currentChar == string2.charAt(j))
+				{
+					valid = true;
+				}
+			}
+			if(!valid)
+			{
+				//currentChar is not in either string
+				return false;
+			}
+		}
+		
+		//String passed all checks
+		return true;
+	}
+
+	public static void drawAudiLogo()
+	{
+		/**
+		 * Draws a logo for the car brand audi with different colors
+		 */
+		JFrame frame = new JFrame();
+		frame.setSize(400,200);
+		frame.setTitle("Audi");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		EllipseComponent logo = new EllipseComponent();
+		frame.add(logo);
+		frame.setVisible(true);
+	}
+	
+	
+}
